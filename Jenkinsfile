@@ -5,7 +5,7 @@ pipeline {
         stage('Compile') {
             steps {
                 
-                sh 'javac Hello.java'
+                sh 'javac hello.java'
                 echo "Compilation successful."
                 
             }
