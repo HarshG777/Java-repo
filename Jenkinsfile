@@ -1,15 +1,20 @@
 pipeline {
-    agent any
-
+    agent { label 'agent1' }
+ 
     stages {
-        stage('Complie stage') {
+        stage('Compile') {
             steps {
-                bat 'javac hello.java'
+                dir('java_file') {
+                    sh 'javac Hello.java'
+                    echo "Compilation successful."
+                }
             }
         }
-        stage('eexecution stage') {
+        stage('Run') {
             steps {
-                bat 'java hello'
+                dir('java_file') {
+                    sh 'java Hello'
+                }
             }
         }
     }
